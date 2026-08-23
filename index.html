@@ -382,26 +382,26 @@ function rOver(){
 function rGuide(){
   return `<div class="anim-in space-y-3"><div class="glass rounded-2xl p-4"><h3 class="text-xs font-bold text-ink mb-3"><span class="w-2 h-2 rounded-full inline-block mr-1.5" style="background:#5B7B9A"></span>帕米尔景点·海拔·门票</h3><div class="table-wrap scroll-fade"><table class="table-excel w-full"><thead><tr><th>景点</th><th>海拔</th><th>门票</th><th class="pr-2">购票渠道</th><th>亮点</th><th>停留</th></tr></thead><tbody>${['喀什古城|1300|免费|无需购票|千年古城迷宫巷陌|1-2天','白沙湖|3300|免费(观景台10-20)|北岸免费·南岸现场购票|白沙+蓝湖+雪山|1-1.5h','木吉火山口|3500|免费|无需购票|帕米尔之眼|1.5h','喀拉库勒湖|3600|~50元|去哪儿/携程预订或现场|慕士塔格倒影|1h','慕士塔格冰川|4688|92元(门+车)|携程/去哪儿 66元起|骑马80元|1.5-2h','盘龙古道|4200|免费|无需购票|600+发卡弯|2-3h','红其拉甫国门|4700|视政策|需边防证·现场登记|世界最高国门之一|视政策','石头城+金草滩|3100|30元|现场窗口购票|千年遗址+湿地|2h'].map(r=>{const c=r.split('|');return`<tr><td>${c[0]}</td><td>${c[1]}</td><td>${c[2]}</td><td class="text-[10px] text-slate pr-2">${c[3]}</td><td>${c[4]}</td><td>${c[5]}</td></tr>`;}).join('')}</tbody></table></div></div><div class="glass rounded-2xl p-4"><h3 class="text-xs font-bold text-ink mb-3"><span class="w-2 h-2 rounded-full inline-block mr-1.5" style="background:#A8772A"></span>租车策略建议</h3>
 <div class="bg-brand-50/80 rounded-xl p-3 mb-3 text-[10px] text-slate leading-relaxed space-y-1.5">
-<div class="font-bold text-brand-700 text-[11px]">方案：两段分开租（省异地还车费 ~2000元）</div>
+<div class="font-bold text-brand-700 text-[11px]">方案：两段分开租（省异地还车费 ~20xx元）</div>
 <div class="flex gap-2"><span class="font-bold shrink-0" style="color:var(--terracotta)">喀什段</span><span>D3 17:00 市区取 SUV → D8 17:00 机场还 · 整5天。D1-D3市内步行+打车，不需要车。<b>省2天租金，市区取比机场便宜</b></span></div>
 <div class="flex gap-2"><span class="font-bold shrink-0" style="color:var(--terracotta-dark)">库车段</span><span>D8 22:00 机场取 → D10 20:00 市区还 · 整2天。经济型轿车，大峡谷200km铺装路足够</span></div>
 </div>
 <div class="bg-brand-50/80 rounded-xl p-3 mb-3 text-[10px] text-slate leading-relaxed space-y-1">
 <div class="font-bold text-brand-700 text-[11px]">各天用车与还车说明</div>
-<div>D1-D3 喀什市区 0km · 步行+打车，车停希尔顿不必取</div>
+<div>D1-D3 喀什市区 0km · 步行+打车，车停希x顿不必取</div>
 <div>D3 <b>17:00</b> 神州/一嗨市区店取 SUV · 整5天</div>
-<div>D4 希尔顿退房→帕米尔 450km · 全季门前车位</div>
-<div>D5 塔县周边 50km · 全季续住</div>
-<div>D6 盘龙+国门 250km · 茗源民宿门前</div>
-<div>D7 回喀什 290km · 温德姆豪生停车场</div>
+<div>D4 希x顿退房→帕米尔 450km · 全x门前车位</div>
+<div>D5 塔县周边 50km · 全x续住</div>
+<div>D6 盘龙+国门 250km · 茗x民宿门前</div>
+<div>D7 回喀什 290km · 温x姆豪生停车场</div>
 <div>D8 下午开去机场 <b>17:00前还车</b> → 飞库车 · 还车前加满油</div>
 <div class="text-[11px] font-bold mt-1" style="color:var(--terracotta-dark)">— 库车段 —</div>
 <div>D8 <b>22:00</b> 库车机场取轿车 · 航班落地21:50</div>
 <div>D9 库车市区 0km · 不开车，打车市内游</div>
-<div>D10 大峡谷+千佛洞 200km · <b>20:00前还车→21:00火车→阿克苏希尔顿花园1晚</b></div>
+<div>D10 大峡谷+千佛洞 200km · <b>20:00前还车→21:00火车→阿克苏希x顿花园1晚</b></div>
 </div>
 <div class="table-wrap scroll-fade"><table class="table-excel w-full"><thead><tr><th>车型</th><th>2日价</th><th>3日价</th><th>适合</th></tr></thead><tbody><tr><td>5座SUV</td><td>2000-2500</td><td>2800-3500</td><td>2-3人</td></tr><tr><td>7座商务</td><td>2600-3200</td><td>3500-4200</td><td>4-6人</td></tr><tr><td>平台租SUV</td><td colspan="2">400-800元/天</td><td>神州/一嗨</td></tr></tbody></table></div>
-<p class="text-[10px] text-slate mt-2">含油费过路费，不含司机食宿~150-200元/天。旺季提前15天订！<b>油费预估：</b>喀什段1,040km×0.7元/km≈730元，库车段200km≈140元。</p></div></div>`;
+<p class="text-[10px] text-slate mt-2">含油费过路费，不含司机食宿~1xx-2xx元/天。旺季提前15天订！<b>油费预估：</b>喀什段1,040km×0.7元/km≈73x元，库车段200km≈1xx元。</p></div></div>`;
 }
 function rDay(d){
   const ih=d.items.map(it=>`<div class="relative pl-8 pb-5 last:pb-0"><div class="absolute left-2.5 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-white border-2 ${it.tag==='must'?'border-brand-500 shadow-sm shadow-rose-200':it.tag==='warn'?'border-brand-500':'border-brand-300'} z-10"></div><div class="flex items-center justify-between mb-2 gap-2"><span class="text-sm font-black tabular-nums shrink-0" style="color:var(--terracotta-dark);letter-spacing:.01em">${it.t}</span><span class="${tCls(it.tag)} tag">${tLb(it.tag)}</span></div><div class="bg-white/80 rounded-2xl p-3 border border-brand-100 shadow-sm"><div class="flex items-center justify-between mb-1"><h4 class="text-sm font-bold text-ink">${it.p}</h4>${navBtn(it)}</div><p class="text-xs text-slate leading-relaxed">${it.d}</p></div></div>`).join('');
