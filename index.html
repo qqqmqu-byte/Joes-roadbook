@@ -617,6 +617,11 @@ switchView(0);
   <div style="width:100%;max-width:460px;background:#fff;border-radius:28px 28px 0 0;padding:18px 18px calc(env(safe-area-inset-bottom) + 18px);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
     <div style="display:flex;justify-content:center;margin-bottom:8px"><div style="width:40px;height:4px;border-radius:2px;background:#E8DFD3"></div></div>
     <h3 style="font-size:16px;font-weight:800;color:#1A1A1A;margin-bottom:2px">🛠 路书数据编辑器</h3>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <button id="tabJson" onclick="rbSwitchTab('json')" style="flex:1;padding:9px;border:none;border-radius:12px;background:#D97757;color:#fff;font-size:13px;font-weight:700;cursor:pointer">JSON</button>
+      <button id="tabForm" onclick="rbSwitchTab('form')" style="flex:1;padding:9px;border:none;border-radius:12px;background:#F5F1EA;color:#6B6B6B;font-size:13px;font-weight:700;cursor:pointer">表单</button>
+    </div>
+    <div id="rbJsonView">
     <p style="font-size:11px;color:#6B6B6B;line-height:1.6;margin-bottom:14px">导出当前路书为 JSON，按结构改成你自己的行程，再导入即可生成专属路书。也可直接编辑 <code style="background:#FAF0E9;padding:1px 5px;border-radius:4px;color:#C25A3A">data.js</code>。</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
       <button onclick="rbExport()" style="padding:12px;border:none;border-radius:14px;background:#D97757;color:#fff;font-size:13px;font-weight:700;cursor:pointer">⬇️ 导出 JSON</button>
@@ -629,6 +634,8 @@ switchView(0);
       <button onclick="rbReset()" style="padding:12px;border:none;border-radius:14px;background:#F5F1EA;color:#6B6B6B;font-size:13px;font-weight:700;cursor:pointer">↺ 恢复默认</button>
     </div>
     <p id="rbMsg" style="font-size:10px;color:#C25A3A;margin-top:10px;min-height:14px"></p>
+    </div>
+    <div id="rbFormView" style="display:none"></div>
     <button onclick="rbClose()" style="width:100%;padding:12px;margin-top:6px;border:none;border-radius:14px;background:#FAF0E9;color:#A8472A;font-size:13px;font-weight:700;cursor:pointer">关闭</button>
   </div>
 </div>
@@ -645,5 +652,6 @@ function rbApplyText(){var tx=document.getElementById('rbText').value.trim();if(
 function rbReset(){localStorage.removeItem('roadbook_local');document.getElementById('rbMsg').textContent='已恢复默认，正在刷新…';setTimeout(function(){location.reload();},300);}
 </script>
 
+<script src="form-editor.js"></script>
 </body>
 </html>

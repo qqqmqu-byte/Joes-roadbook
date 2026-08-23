@@ -37,7 +37,7 @@
 | **🎒 装备** | 高原自驾防高反装备清单（氧气/衣物/证件/电子/车载） |
 | **⚠️ 安全** | 边防证办理 · 高反装备 · 紧急电话 · 帕米尔自驾注意事项 |
 | **🧭 导航** | 点「导航」弹出 **高德/百度/腾讯/Apple 地图** 四选一，谁装了点谁 |
-| **🛠️ 数据驱动** | 右下角 ⚙️ 内嵌编辑器：**导出 / 导入 JSON，即刻生成你的专属路书** |
+| **🛠️ 数据驱动** | 右下角 ⚙️ 内嵌编辑器：**JSON / 表单双模式切换**，可导出/导入 JSON，也可在表单里可视化增删天数/餐厅/预算/装备，即刻生成你的专属路书 |
 | **📱 体验** | 移动端优先 · PWA 可加到主屏 · 内联兜底样式（CDN 挂了核心 UI 仍可用）· 底部上滑半屏交互 |
 
 ---
@@ -54,7 +54,11 @@
   <img src="screenshots/05-food.png" width="24%" alt="美食 · 喀什三分类" />
   <img src="screenshots/06-safety.png" width="24%" alt="安全 · 高原边防" />
   <img src="screenshots/07-budget.png" width="24%" alt="预算 · 14 项费用看板" />
-  <img src="screenshots/08-editor.png" width="24%" alt="编辑器 · 导入导出 JSON" />
+  <img src="screenshots/08-editor.png" width="24%" alt="编辑器 · JSON 模式" />
+</p>
+<p align="center">
+  <img src="screenshots/11-editor-form.png" width="24%" alt="编辑器 · 表单模式" />
+  <img src="screenshots/12-editor-form-scroll.png" width="24%" alt="表单 · 行程条目编辑" />
 </p>
 
 <p align="center"><i>桌面端浏览建议右键图片 → 在新标签页打开，查看高清原图。</i></p>
@@ -208,11 +212,10 @@ python -m http.server 8080      # 然后浏览器打开 http://localhost:8080
 
 ## 🧭 路线图
 
-- [ ] 可视化表单编辑器（不用写 JSON，网页上直接增删天数与地点）
+- [x] **可视化表单编辑器**（已完成）— ⚙️ 编辑器已支持 JSON / 表单双模式切换，表单模式下可直接增删天数/餐厅/预算/装备，无需手写 JSON。
 - [ ] ServiceWorker 离线缓存（真正断网可用）
 - [ ] 暗色模式 / 主题切换
 - [ ] 多路线切换（同一份框架跑多条线路）
-- [ ] 截图与演示动图（完善本 README 的视觉呈现）
 
 ---
 
