@@ -11,6 +11,8 @@
 
 <p align="center">把一段真实的旅行，变成别人也能「改一份数据就复用」的开源产品。</p>
 
+<p align="center"><a href="#-应用预览">👇 先看效果</a></p>
+
 ---
 
 ## ✨ 它解决什么问题
@@ -37,6 +39,25 @@
 | **🧭 导航** | 点「导航」弹出 **高德/百度/腾讯/Apple 地图** 四选一，谁装了点谁 |
 | **🛠️ 数据驱动** | 右下角 ⚙️ 内嵌编辑器：**导出 / 导入 JSON，即刻生成你的专属路书** |
 | **📱 体验** | 移动端优先 · PWA 可加到主屏 · 内联兜底样式（CDN 挂了核心 UI 仍可用）· 底部上滑半屏交互 |
+
+---
+
+## 📸 应用预览
+
+<p align="center">
+  <img src="screenshots/01-home.png" width="24%" alt="首页 · 倒计时与行程概览" />
+  <img src="screenshots/02-day.png" width="24%" alt="行程 · 每日时间轴" />
+  <img src="screenshots/03-guide.png" width="24%" alt="锦囊 · 帕米尔景点表" />
+  <img src="screenshots/04-map.png" width="24%" alt="地图 · 多图源轨迹" />
+</p>
+<p align="center">
+  <img src="screenshots/05-food.png" width="24%" alt="美食 · 喀什三分类" />
+  <img src="screenshots/06-safety.png" width="24%" alt="安全 · 高原边防" />
+  <img src="screenshots/07-budget.png" width="24%" alt="预算 · 14 项费用看板" />
+  <img src="screenshots/08-editor.png" width="24%" alt="编辑器 · 导入导出 JSON" />
+</p>
+
+<p align="center"><i>桌面端浏览建议右键图片 → 在新标签页打开，查看高清原图。</i></p>
 
 ---
 

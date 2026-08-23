@@ -4,3 +4,5 @@ mirror.log
 _probe_index.html
 _refactor.py
 _check.js
+_shots.py
+__pycache__/
