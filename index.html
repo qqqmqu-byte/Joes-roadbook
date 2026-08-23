@@ -195,7 +195,8 @@ h3{font-size:13px;font-weight:700;letter-spacing:0}
     });
   }catch(e){}
 })();
-</script></head>
+</script><script src="data.js"></script>
+</head>
 <body class="min-h-screen">
 
 <header class="sticky top-0 z-50 px-3 pt-3 pb-1">
@@ -238,58 +239,19 @@ const manifest={name:'南疆路书',short_name:'南疆路书',start_url:location
 const ml=document.createElement('link');ml.rel='manifest';ml.href='data:application/json,'+encodeURIComponent(JSON.stringify(manifest));document.head.appendChild(ml);
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window._pwa=e;const b=document.createElement('div');b.className='fixed top-0 left-0 right-0 z-50 bg-brand-600 text-white px-4 py-3 flex items-center justify-between text-xs font-semibold';b.style.paddingTop='env(safe-area-inset-top)';b.innerHTML='<span>📲 添加到主屏幕，离线也能看路书</span><button class="bg-white/20 px-3 py-1 rounded-lg active:scale-95">✕</button>';b.onclick=()=>{e.prompt();b.remove()};b.querySelector('button').onclick=ev=>{ev.stopPropagation();b.remove()};document.body.appendChild(b)});
 
-// ====== DATA ======
-const mapQueries={'喀什徕宁国际机场':'喀什徕宁国际机场','喀什全域旅游服务中心':'喀什全域旅游服务中心','汗巴扎夜市':'喀什古城汗巴扎夜市','喀什古城东门':'喀什古城东门','花盆巴扎':'喀什古城花盆巴扎','空中花园→那时慢民宿':'喀什古城空中花园','那时慢民宿':'喀什那时慢民宿','乌兰朵咖啡馆天台':'喀什乌兰朵咖啡馆','巴依老爷家':'喀什古城巴依老爷家','艾提尕尔清真寺→吾斯塘博依老街':'喀什艾提尕尔清真寺','彩虹巷+布袋巷':'喀什古城彩虹巷','百年老茶馆':'喀什百年老茶馆','高台民居→昆仑塔':'喀什昆仑塔','白沙湖（北岸）':'阿克陶白沙湖','木吉火山口':'木吉火山口','慕士塔格峰路段':'慕士塔格峰','喀拉库勒湖':'喀拉库勒湖','石头城遗址':'塔什库尔干石头城','金草滩':'塔什库尔干金草滩','塔合曼湿地观景台':'塔合曼湿地','托格伦夏村':'塔什库尔干托格伦夏村','盘龙古道（大盘龙上）':'盘龙古道','网红路牌打卡':'盘龙古道网红路牌','班迪尔蓝湖':'班迪尔蓝湖','红其拉甫国门':'红其拉甫国门','慕士塔格冰川公园':'慕士塔格冰川公园','雪柳树洞':'塔合曼雪柳树洞','喀什大巴扎':'喀什大巴扎','香妃墓':'喀什香妃园','库车大馕城':'库车大馕城','库车王府':'库车王府','库车大寺':'库车大寺','热斯坦路':'库车热斯坦路','库车老城巷陌':'库车老城','库车大巴扎':'库车大巴扎','库车夜市':'库车夜市','天山神秘大峡谷':'库车天山神秘大峡谷','克孜尔千佛洞':'克孜尔千佛洞','鸠摩罗什广场+博物馆':'克孜尔千佛洞','阿克苏午餐·大盘鸡':'阿克苏','阿克苏苹果批发市场':'阿克苏苹果批发市场','阿克苏红旗坡机场':'阿克苏红旗坡机场','阿克苏苹果早市':'阿克苏苹果早市','阿克苏希尔顿花园':'阿克苏希尔顿花园酒店','充电桩·喀什机场':'阿克苏充电站','充电桩·喀什大学城':'喀什充电站','充电桩·塔县':'塔县充电站','充电桩·库车':'库车充电站'};
-
-const poiCoords={'喀什古城东门':[39.473,75.994],'花盆巴扎':[39.472,75.992],'那时慢民宿':[39.471,75.990],'艾提尕尔清真寺':[39.472,75.985],'百年老茶馆':[39.471,75.986],'昆仑塔':[39.468,75.991],'汗巴扎夜市':[39.473,75.992],'香妃墓':[39.488,76.015],'喀什大巴扎':[39.460,75.980],'喀什全域旅游服务中心':[39.475,75.980],'喀什徕宁国际机场':[39.543,76.018],'白沙湖':[38.770,74.970],'木吉火山口':[38.950,74.520],'喀拉库勒湖':[38.450,75.060],'慕士塔格冰川公园':[38.280,75.120],'慕士塔格峰':[38.280,75.120],'塔县':[37.773,75.228],'石头城遗址':[37.780,75.230],'金草滩':[37.778,75.232],'塔合曼湿地':[37.880,75.190],'托格伦夏村':[37.760,75.240],'盘龙古道':[37.620,75.470],'班迪尔蓝湖':[37.610,75.520],'红其拉甫国门':[36.850,75.430],'库车大馕城':[41.720,82.960],'库车王府':[41.720,82.955],'库车大寺':[41.718,82.952],'热斯坦路':[41.719,82.956],'库车夜市':[41.720,82.962],'库车老城':[41.722,82.958],'天山神秘大峡谷':[42.070,83.120],'克孜尔千佛洞':[41.790,82.500],'阿克苏':[41.168,80.260],'阿克苏苹果早市':[41.158,80.275],'阿克苏希尔顿花园':[41.172,80.268],'充电桩·喀什机场':[39.543,76.020],'充电桩·喀什大学城':[39.475,75.985],'充电桩·塔县':[37.775,75.225],'充电桩·库车':[41.720,82.962]};
-
-const days=[{day:1,date:'9月下旬·周四',title:'抵达喀什·入住希尔顿',icon:'🛬',alt:'1300m',drive:'0km',intensity:'★☆☆☆☆',stay:'🏨 喀什大学城希尔顿惠庭',stayPrice:'¥1142',items:[{t:'13:20',p:'✈️ 去程航班·武汉→乌鲁木齐',tr:'✈️',tag:'transit',d:'武汉起飞→乌鲁木齐，飞行约2.5小时'},{t:'18:55',p:'✈️ 中转航班·乌鲁木齐→喀什',tr:'✈️',tag:'transit',d:'乌鲁木齐→喀什，联程中转停留约1小时15分（充足）'},{t:'21:30',p:'打车去大学城希尔顿',tr:'🚕',tag:'transit',d:'机场打车到喀什大学城希尔顿惠庭（东城前进路113号 嘉汇大厦）约15km/25min/40元。D1-D3不需要车'},{t:'22:00',p:'入住希尔顿·早睡倒时差',tr:'🏨',tag:'warn',d:'[避坑] 不洗澡不饮酒多喝热水，洗漱后立即睡觉。次日早9点起来办边防证'},{t:'次日待办',p:'次日晨起检查清单',tr:'✓',tag:'warn',d:'边防证✅(塔县+木吉+红其拉甫) 身份证✅ 现金✅ 氧气瓶×2✅ 葡萄糖✅ 离线地图✅ 油量满✅'}],tip:'希尔顿在东城前进路，距古城打车15元。21:00到喀什倒时差关键早睡。'},{day:2,date:'9月下旬·周五',title:'喀什古城City Walk',icon:'🏘️',alt:'1300m',drive:'0km',intensity:'★★★☆☆',stay:'🏨 喀什大学城希尔顿惠庭',stayPrice:'¥1142',items:[{t:'09:00',p:'办边防证',tr:'🚶',tag:'must',d:'[必去] 去喀什全域旅游服务中心办边防证（塔县+木吉+红其拉甫）。次日傍晚才取车，今天先走路'},{t:'10:00',p:'喀什古城东门',tr:'🚶',tag:'must',d:'[必去] 提前30分钟占位看开城仪式(10:30)。民族歌舞，第一排最佳！'},{t:'11:00',p:'花盆巴扎',tr:'🚶',tag:'photo',d:'[出片] 彩色陶罐阵列，仰拍填满画面'},{t:'11:30',p:'空中花园→那时慢民宿',tr:'🚶',tag:'photo',d:'[绝佳机位] 彩虹楼梯走到顶——街巷与昆仑塔同框！'},{t:'12:30',p:'乌兰朵咖啡馆天台',tr:'🚶',tag:'photo',d:'[出片] 天台俯瞰古城全景，一杯咖啡=半小时出片'},{t:'13:30',p:'巴依老爷家',tr:'🚶',tag:'must',d:'[必去] 300年维族豪宅，门票30元。拍建筑细节、光影窗棂'},{t:'14:00',p:'诺尔贝希路烤包子+抓饭',tr:'🚶',tag:'food',d:'[美食] 烤包子3元/个。抓饭25-40元'},{t:'15:30',p:'艾提尕尔清真寺→吾斯塘博依老街',tr:'🚶',tag:'must',d:'[必去] 六百年清真寺，广场喂鸽子。老街淘琉璃灯、铜器'},{t:'16:00',p:'彩虹巷+布袋巷',tr:'🚶',tag:'photo',d:'[出片] 小红书爆款！先拍布袋巷再拍彩虹巷'},{t:'16:30',p:'百年老茶馆',tr:'🚶',tag:'must',d:'[必去] 茯茶+玛仁糖，听木卡姆弹唱。30-50元/壶'},{t:'18:00',p:'高台民居→昆仑塔',tr:'🚶',tag:'photo',d:'[绝佳机位] 登顶40元，日落+古城亮灯=最值的40块'},{t:'20:00',p:'汗巴扎夜市',tr:'🚶',tag:'food',d:'[美食] 烤鸽子、馕坑肉、棘棘国王冰淇淋10-15元'},{t:'住宿',p:'回到希尔顿·早睡',tr:'🏨',tag:'warn',d:'[避坑] 明早7点出发帕米尔，洗漱后早睡'},{t:'出行',p:'希尔顿→古城东门',tr:'🚶',tag:'transit',d:'希尔顿（东城前进路）打车到古城东门约15元/15min，或公交31路'},{t:'交通',p:'今日市内步行',tr:'🚶',tag:'transit',d:'全程2万步，穿最舒服的鞋，开城仪式10:30和18:00各一场'},{t:'重要',p:'明天D3出发准备',tr:'🏨',tag:'warn',d:'[避坑] D3是希尔顿最后一晚。D4退房出发帕米尔'}],tip:'希尔顿3晚最后一晚已住，明天出发前退房。打包好行李为帕米尔段做准备。'},{day:3,date:'9月下旬·周六',title:'喀什拓展·采购装备',icon:'🛍️',alt:'1300m',drive:'0km',intensity:'★☆☆☆☆',stay:'🏨 喀什大学城希尔顿惠庭（最后一晚）',stayPrice:'¥1142',items:[{t:'上午',p:'自然醒+希尔顿早餐',tr:'🚶',tag:'warn',d:'[避坑] 睡到自然醒，倒时差。希尔顿含早餐，为帕米尔段养精蓄锐'},{t:'中午',p:'酒店休整+诺尔贝希路',tr:'🚶',tag:'must',d:'[必去] 上午自然醒倒时差。午餐去诺尔贝希路老店吃烤包子3元/个 + 缸子肉25元'},{t:'14:00',p:'喀什大巴扎采购',tr:'🚕',tag:'must',d:'[必去] 采购帕米尔段物资：馕×4（路上干粮）、葡萄糖口服液（喀什买最便宜）、瓶装水、备用现金（盘龙沿线无信号）'},{t:'15:30',p:'香妃墓（30分钟）',tr:'🚕',tag:'photo',d:'[出片] 门票30元，琉璃瓦+伊斯兰建筑，半小时快速逛完'},{t:'16:30',p:'诺尔贝希路+老茶馆',tr:'🚶',tag:'food',d:'[美食] 下午茶时间，老茶馆一壶茯茶+玛仁糖（30-50元），听木卡姆静心'},{t:'19:00',p:'汗巴扎夜市晚餐',tr:'🚶',tag:'food',d:'[美食] 告别喀什晚餐！牦牛肉火锅（80-120元/人）+ 烤包子 + 烤鸽子 + 葡萄干甜点'},{t:'17:00',p:'市区取车（整5天）',tr:'🚗',tag:'must',d:'[必去] 神州/一嗨市区店17:00取SUV（坦克300/哈弗大狗）。整5天到D8 17:00还。取车后开回希尔顿，明早7点直接出发帕米尔'},{t:'22:00',p:'回希尔顿·打包',tr:'🏨',tag:'warn',d:'[避坑] 希尔顿最后一晚！整理行李：冲锋衣、抓绒、薄羽绒、手套、墨镜放最易取位置'},{t:'明日准备',p:'D4早7点出发',tr:'✓',tag:'warn',d:'边防证✅ 身份证✅ 现金✅ 馕×4✅ 氧气瓶×2✅ 葡萄糖✅ 离线地图✅ 油量满✅ 厚衣服✅'}],tip:'希尔顿退房日。明早7点出发帕米尔，今天养精蓄锐为主。塔县酒店D4晚记得提前订！'},{day:4,date:'9月下旬·周日',title:'白沙湖→木吉火山→塔县',icon:'🚗',alt:'1300→3500→3100m',drive:'450km',intensity:'★★★★★',stay:'🏨 全季酒店 千草滩景区店',stayPrice:'¥1828',items:[{t:'07:00',p:'希尔顿退房+出发',tr:'🚗',tag:'warn',d:'[避坑] 14:00前退房！7点前出城，全程最累一天。加油！带好午餐干粮'},{t:'09:30',p:'白沙湖（北岸）',tr:'🚗150km',tag:'photo',d:'[绝佳机位] 北岸免费、人少、能走到水边！白沙山+蒂芙尼蓝湖水+雪山'},{t:'11:00',p:'布伦口→木吉边防公路',tr:'🚗X364',tag:'warn',d:'[避坑] ~100km砂石路。SUV舒适。无信号路段提前下载离线地图！'},{t:'13:00',p:'木吉火山口',tr:'🚗',tag:'photo',d:'[小众出片] "帕米尔之眼"！自带干粮午餐。海拔3500m风极大'},{t:'14:30',p:'折返G314主路',tr:'🚗100km',tag:'transit',d:'原路返回主路，远眺喀拉库勒湖（D8还会来）'},{t:'18:00',p:'慕士塔格峰路段',tr:'🚗',tag:'photo',d:'[绝佳机位] 夕阳打在"冰山之父"上金光万丈！'},{t:'20:00',p:'抵达塔县·入住全季',tr:'🚗',tag:'must',d:'[必去] 全季酒店（塔什库尔干千草滩景区店），古城路033号。有制氧机+加湿器+金可儿床垫。晚餐牦牛肉火锅'},{t:'住宿',p:'全季酒店 大床×2间',tr:'🏨',tag:'warn',d:'[避坑] 11:30后入住。1.8米大床×2间，35m²，落地窗，2-3层'},{t:'晚安',p:'早睡·别洗澡',tr:'😴',tag:'warn',d:'[避坑] 高原第一晚！不洗澡不饮酒多喝热水，床有制氧机可开'}],tip:'⚠️ 驾驶9-10小时！累了可砍木吉：喀什→白沙湖→喀湖→慕士塔格冰川→塔县，少200km。'},{day:5,date:'9月下旬·周一',title:'塔县休整·塔合曼·托格伦夏',icon:'🌿',alt:'3100m',drive:'50km',intensity:'★★☆☆☆',stay:'🏨 全季酒店 千草滩景区店（续住）',stayPrice:'¥1828',items:[{t:'09:00',p:'自然醒！',tr:'😴',tag:'warn',d:'[避坑] 不设闹钟！睡眠是最好的高反药'},{t:'10:00',p:'石头城遗址',tr:'🚗5min',tag:'must',d:'[必去] 门票30元，西域古国蒲犁国千年都城遗址'},{t:'11:00',p:'金草滩',tr:'🚶',tag:'photo',d:'[绝佳机位] 含石头城票。晨光洒湿地，木栈道+草甸+雪山'},{t:'12:00',p:'塔合曼湿地观景台',tr:'🚗30min',tag:'photo',d:'[出片] 帕米尔绿色地毯，免费。广角拍全景'},{t:'13:00',p:'塔县午餐·牦牛肉火锅',tr:'🚗',tag:'food',d:'[美食] 高原牦牛肉+塔吉克奶茶。人均80-120元'},{t:'15:00',p:'托格伦夏村',tr:'🚗20min',tag:'photo',d:'[小众出片] 塔吉克族村落！白杨林荫道、土房民居'},{t:'16:00-日落',p:'村里深度漫步',tr:'🚶',tag:'photo',d:'[绝佳机位] 和塔吉克老人聊天、等日落金山。慕士塔格就在村头'}],tip:'塔吉克族是中国唯一白种人族群，非常友善。带糖果给小孩。今天开车不到1小时。'},{day:6,date:'9月底·周二',title:'盘龙古道·国门→茗源民宿',icon:'🏔️',alt:'3100→4700m',drive:'250km',intensity:'★★★★☆',stay:'🏨 茗源民宿 塔县（自订）',stayPrice:'—',items:[{t:'08:00',p:'全季退房（14:00前）+行李寄存',tr:'🏨',tag:'warn',d:'[避坑] 全季退房！行李寄存前台，今晚改住茗源民宿（自己订）'},{t:'08:30',p:'塔县加油出发',tr:'🚗',tag:'warn',d:'[避坑] 塔县是帕米尔最后一个加油站，务必加满！'},{t:'09:00',p:'盘龙古道（大盘龙上）',tr:'🚗30min',tag:'must',d:'[必去] 30km/600+发卡弯！单行道⚠️航拍最佳'},{t:'10:30',p:'网红路牌打卡',tr:'🚗',tag:'photo',d:'[绝佳机位] "今日走过了所有的弯路，从此人生尽是坦途"'},{t:'12:00',p:'班迪尔蓝湖',tr:'🚗',tag:'photo',d:'[出片] 下坂地水库，蒂芙尼蓝。路边停车即拍，免费'},{t:'14:00',p:'路餐（自带干粮）',tr:'🍞',tag:'warn',d:'[避坑] 盘龙古道沿线无餐饮，提前备好馕+水+零食'},{t:'14:30',p:'前往红其拉甫国门',tr:'🚗130km',tag:'must',d:'[必去] 世界最高国门之一，海拔4700m！看边防政策'},{t:'16:30',p:'红其拉甫国门',tr:'🚗',tag:'photo',d:'[绝佳机位] 温度比塔县低10°C+，冲锋衣全套穿上'},{t:'19:30',p:'回到塔县',tr:'🚗',tag:'transit',d:'盘龙+国门后返塔县，晚餐在塔县解决'},{t:'晚上',p:'入住茗源民宿',tr:'🏨',tag:'must',d:'[必去] 你自己订的茗源民宿，今晚入住。塔县当地民宿，老板可能提供餐食+出行建议'},{t:'明日准备',p:'D7早出发',tr:'✓',tag:'warn',d:'[避坑] 明日D7慕士塔格冰川（最冷最累的一天）。茗源退房时间问清'}],tip:'盘龙古道全程无厕所少喝水。海拔最高4200m备好葡萄糖。国门不开放改瓦罕走廊。'},{day:7,date:'10月初·周三·国庆',title:'慕士塔格冰川→回喀什',icon:'🧊',alt:'3100→4688→1300m',drive:'290km',intensity:'★★★★☆',stay:'🏨 喀什疏附温德姆豪生life酒店',stayPrice:'高级双床房×2',items:[{t:'08:00',p:'塔县退房出发',tr:'🚗',tag:'transit',d:'告别帕米尔！G314一路下坡。来时的路倒着走，每个角度都不一样'},{t:'09:30',p:'慕士塔格冰川公园',tr:'🚗',tag:'must',d:'[必去] 4号冰川！门票~120元。徒步1.5km(40min)，骑马100元。海拔4688m⚠️全程最高！'},{t:'11:30',p:'雪柳树洞',tr:'🚗',tag:'photo',d:'[出片] 公路两侧柳树拱门，秋天金黄隧道感'},{t:'12:30',p:'喀拉库勒湖',tr:'🚗',tag:'must',d:'[必去] 门票~50元。正午雪山+湖水倒影最美！来帕米尔就是为了这个画面'},{t:'15:30',p:'白沙湖（南岸）',tr:'🚗',tag:'photo',d:'[绝佳机位] 和D4北岸不同角度。南岸观景台拍正面构图'},{t:'17:00',p:'返回喀什',tr:'🚗3h',tag:'transit',d:'G314一路下坡。到喀什海拔1300m——你下来了！'},{t:'19:00',p:'入住温德姆豪生life',tr:'🚗',tag:'must',d:'[必去] 温德姆豪生life酒店（疏附吾库萨克镇五羊大道68号），18:00后入住。国庆当晚！烤鸽子+大盘鸡庆祝帕米尔段！'},{t:'退房准备',p:'明日D8退房+飞库车',tr:'✓',tag:'warn',d:'[避坑] 明天14:00前退房！机场还车，机场取票，18:00前进机场安检（航班20:35）'}],tip:'🎉 国庆当天站在4688m冰山之父面前——一辈子一次。冰川体感0°C，冲锋衣+抓绒+手套+帽子缺一不可。'},{day:8,date:'10月初·周四',title:'喀什→库车·入住希尔顿',icon:'🕌',alt:'1300→1000m',drive:'0km',intensity:'★★☆☆☆',stay:'🏨 库车希尔顿惠庭酒店',stayPrice:'灵动大床房',items:[{t:'09:00',p:'温德姆退房+最后半天',tr:'🚗',tag:'must',d:'[必去] 14:00前退房。上午去喀什大巴扎采购干果（红枣核桃无花果巴旦木），快递寄走别自己扛！'},{t:'11:00',p:'香妃墓（30分钟）',tr:'🚕',tag:'photo',d:'[出片] 30元半小时。琉璃瓦+伊斯兰建筑，错过遗憾'},{t:'13:00',p:'最后一顿喀什抓饭',tr:'🍽️',tag:'food',d:'[美食] 缸子肉+烤包子+酸奶再吃一次！这是告别餐'},{t:'16:00',p:'机场还车（17:00前）',tr:'🚕',tag:'warn',d:'[避坑] 17:00前还车（整5天到期）。拍照里程表、油表。然后办登机，18:00前进安检'},{t:'20:35',p:'✈️ 喀什→库车航班',tr:'✈️1h15m',tag:'transit',d:'喀什徕宁20:35起飞→库车龟兹21:50'},{t:'22:00',p:'库车机场取车（整2天）',tr:'🚗',tag:'must',d:'[必去] 机场租车点取经济型轿车（航班落地21:50）。整2天到D10 22:00还。开车15km到希尔顿'},{t:'22:30',p:'入住希尔顿惠庭',tr:'🏨',tag:'must',d:'[必去] 库车希尔顿惠庭酒店（健康路39号），前台有24h值班'},{t:'明日准备',p:'库车市区深度游准备',tr:'✓',tag:'warn',d:'[避坑] 库车连住2晚（D8-D10）。D10退房后行李寄存，晚上火车去阿克苏'},{t:'位置',p:'酒店→老城/王府',tr:'🚗',tag:'transit',d:'希尔顿惠庭到库车王府约5km，打车10元'},{t:'交通',p:'今晚打车回酒店',tr:'🚕',tag:'transit',d:'机场到酒店约15km，30-40元，出租车不打表'},{t:'饮食',p:'今晚夜宵',tr:'🍜',tag:'food',d:'[美食] 酒店附近可能有便利店+拉面馆，今晚吃清淡些垫垫肚子'}],tip:'库车希尔顿2晚入住。航班21:50到库车机场，22:30左右到酒店。'},{day:9,date:'10月初·周五',title:'库车市区深度游',icon:'🏯',alt:'1000m',drive:'0km',intensity:'★★☆☆☆',stay:'🏨 库车希尔顿惠庭酒店',stayPrice:'灵动大床房',items:[{t:'09:00',p:'库车大馕城',tr:'🚕',tag:'food',d:'[美食] 比脸盆还大的馕！3元一个，看打馕全过程'},{t:'10:00',p:'库车王府',tr:'🚕',tag:'must',d:'[必去] 门票55元。最后一位王妃仍住在此，运气好能见到本人'},{t:'11:00',p:'库车大寺',tr:'🚶',tag:'photo',d:'[出片] 新疆第二大清真寺，门票15元。穹顶+宣礼塔构图'},{t:'12:00',p:'热斯坦路',tr:'🚶',tag:'photo',d:'[绝佳机位] 彩色门窗一条街！每扇门不同色，龟兹风情摄影圣地'},{t:'13:00',p:'库车烤肉午餐',tr:'🚶',tag:'food',d:'[美食] 烤肉10元/大串！烤鸽子、烤包子。热斯坦路边老店最地道'},{t:'14:30',p:'库车老城巷陌',tr:'🚶',tag:'photo',d:'[出片] 比喀什古城更原生态——游客少、生活感强。钻无名小巷'},{t:'17:30',p:'库车大巴扎',tr:'🚕',tag:'must',d:'[必去] 比喀什大巴扎更本地化。最后的采购机会'},{t:'19:00',p:'库车夜市',tr:'🚕',tag:'food',d:'[美食] 酸奶粽子5-10元、冰渣酸奶、烤鸽子。比喀什更接地气'},{t:'住宿',p:'回希尔顿惠庭',tr:'🏨',tag:'transit',d:'希尔顿到夜市约5km，打车10-15元'},{t:'交通',p:'今日市内打车',tr:'🚕',tag:'transit',d:'全程打车约50-80元，库车小城市不打表多'},{t:'补货',p:'明天去大峡谷的补给',tr:'🏪',tag:'warn',d:'[避坑] 提前买：瓶装水×4、馕×2、能量棒（峡谷景区没餐饮）'},{t:'明日准备',p:'D10自驾出门准备',tr:'✓',tag:'warn',d:'明日租车自驾！出门前检查车况：轮胎、刹车、油量、应急三脚架'}],tip:'库车=龟兹，玄奘在此讲经。全天不开车，市内打车10元以内。'},{day:10,date:'10月初·周六',title:'库车周边·峡谷+千佛洞·夜火车',icon:'⛰️',alt:'1000→1100m',drive:'200km',intensity:'★★★☆☆',stay:'🏨 阿克苏希尔顿花园酒店',stayPrice:'入住1晚',items:[{t:'08:00',p:'取车出发',tr:'🚗',tag:'transit',d:'在希尔顿附近租车点取车（昨晚已预订），带上干粮和水。D10自驾往返200km'},{t:'10:00',p:'天山神秘大峡谷',tr:'🚗70km',tag:'must',d:'[必去] 门票~40元。红色丹霞徒步2.5km。正午阳光直射最美(11-13点)'},{t:'13:30',p:'前往克孜尔千佛洞',tr:'🚗80km',tag:'transit',d:'沿途戈壁+天山南麓景观'},{t:'15:00',p:'克孜尔千佛洞',tr:'🚗',tag:'must',d:'[必去] 门票~70元。比敦煌莫高窟早200年！⚠️窟内禁拍！'},{t:'17:00',p:'鸠摩罗什广场+博物馆',tr:'🚶',tag:'photo',d:'[出片] 菱形格壁画、阿富汗青金石颜料——丝路文明见证'},{t:'19:00',p:'返回库车+20:00前还车',tr:'🚗',tag:'transit',d:'开车回希尔顿，20:00前在附近租车点还车（整2天到期）。拍照里程表。打车去库车火车站'},{t:'20:00',p:'库车站晚餐',tr:'🚕',tag:'food',d:'[美食] 火车站附近简餐（大盘鸡面/烤肉馕），20分钟内吃完'},{t:'21:00',p:'🚂 库车→阿克苏（火车）',tr:'🚂',tag:'transit',d:'火车21:00-23:30。硬座~40元。提前15天12306抢票'},{t:'23:30',p:'阿克苏·入住希尔顿花园',tr:'🚕',tag:'must',d:'[必去] 阿克苏希尔顿花园酒店（祥和路18号），打车5km到酒店，10分钟，前台有24h值班'},{t:'明日准备',p:'D11早苹果早市',tr:'✓',tag:'warn',d:'[避坑] 早市8点开市，最晚9:30要到。打车20元15分钟。带环保袋'},{t:'注意',p:'阿克苏希尔顿花园',tr:'🏨',tag:'warn',d:'新订住宿，订单号查下。酒店位置离苹果早市约3km，离机场约12km'},{t:'行李',p:'托运/快递苹果',tr:'✓',tag:'warn',d:'[避坑] 苹果很重！今早买好后直接寄顺丰到武汉。机场安检不查苹果，但带着累'}]},{day:11,date:'10月初·周日',title:'阿克苏·苹果早市·返程',icon:'🍎',alt:'1100m',drive:'0km',intensity:'★☆☆☆☆',stay:'🏠 武汉天河',stayPrice:'—',items:[{t:'07:00',p:'希尔顿花园早餐+退房',tr:'🏨',tag:'transit',d:'退房寄存行李。前台寄存免费'},{t:'08:30',p:'阿克苏苹果早市',tr:'🚕',tag:'must',d:'[必去] 苹果广场早市（滨河路与水韵路交叉口西北120米）。早市8:00-13:00。🍎冰糖心苹果10月下旬上市，先尝后买！葡萄/石榴/馕都便宜'},{t:'11:00',p:'早市买+寄顺丰',tr:'🚕',tag:'must',d:'[必去] 早市旁有快递点直接寄武汉（约2-3天到）。5kg装冰糖心苹果约50-80元/箱。拍照+选果+打包15分钟搞定'},{t:'12:00',p:'阿克苏午餐',tr:'🍽️',tag:'food',d:'[美食] 阿克苏大盘鸡更正宗。多浪河附近餐厅一条街'},{t:'13:00',p:'取行李+逛多浪河',tr:'🚕',tag:'photo',d:'[出片] 多浪河景观带。阿克苏地标，林荫步道+胡杨，适合散步消食'},{t:'14:30',p:'阿克苏红旗坡机场',tr:'🚕20min',tag:'transit',d:'希尔顿到机场12km约20分钟。预留充足时间过安检'},{t:'16:00',p:'机场候机',tr:'🛋️',tag:'warn',d:'[避坑] 阿克苏机场较小，提前1.5h到即可。安检口少排队快'},{t:'17:05',p:'✈️ 返程航班·阿克苏→武汉',tr:'✈️4h45m',tag:'transit',d:'长龙航空。阿克苏17:05→武汉天河21:50'},{t:'21:50',p:'抵达武汉·回家！',tr:'🏠',tag:'must',d:'11天、1500公里、4700米——帕米尔的风会记住你。'},{t:'行李',p:'顺丰单号',tr:'✓',tag:'warn',d:'[避坑] 苹果单号拍照存好。武汉收到后可能有压伤但冰糖心不影响口感'}]}];
-
-const restaurants=[
-  {n:'阿尔茶抓饭店',city:'喀什',cat:'硬核主食',price:'20-30元',loc:'居民区里·只做午市',desc:'本地人公认的抓饭神店，羊肉软烂脱骨不膻',addr:'喀什居民区',intro:'本地人公认的抓饭"神店"，藏在居民区里，只做午市。羊油焖出的米饭金黄油润，羊肉软烂脱骨，完全不膻。',dishes:['抓饭']},
-  {n:'父梦快餐店',city:'喀什',cat:'硬核主食',price:'25-35元',loc:'喀什市区',desc:'馕包肉绝配，肉炖得超级软烂',addr:'喀什市区',intro:'这家的馕包肉是绝配，肉炖得超级软烂，揪一块馕裹着肉吃，香到不行，店里坐满了本地食客。',dishes:['馕包肉']},
-  {n:'踏吉美蓝美食宫',city:'喀什',cat:'硬核主食',price:'人均40-50元',loc:'古城旁',desc:'辣皮子拌面劲道，椒麻鸡麻味足',addr:'喀什古城旁',intro:'古城旁的高分本地菜馆，辣皮子拌面面条劲道，椒麻鸡麻味十足，还有惊喜的包菜炒馕，酸甜入味。',dishes:['辣皮子拌面','椒麻鸡','包菜炒馕']},
-  {n:'祖农烤包子',city:'喀什',cat:'街头小吃',price:'3-5元/个',loc:'喀什市区',desc:'馕坑现烤，皮薄酥脆滚烫羊肉汤汁',addr:'喀什市区',intro:'很多本地人强推的烤包子店，馕坑现烤，皮薄酥脆，咬开就是滚烫的羊肉汤汁，一定要趁热吃。',dishes:['烤包子']},
-  {n:'糙梨家常饭馆',city:'喀什',cat:'街头小吃',price:'20-30元',loc:'喀什市区',desc:'薄皮包子皮薄肉多，缸子肉软烂',addr:'喀什市区',intro:'薄皮包子皮薄肉多，一口下去全是汁水；缸子肉炖得软烂，萝卜都吸满了汤汁。',dishes:['薄皮包子','缸子肉']},
-  {n:'土公羊烤肉店',city:'喀什',cat:'街头小吃',price:'5-8元/串',loc:'喀什市区',desc:'羊肉串外焦里嫩，配馕封神',addr:'喀什市区',intro:'也叫烤肉故事烤肉店，一进门就满是烟火气。羊肉串外焦里嫩，油脂的香气在嘴里爆开，配上馕吃简直封神。',dishes:['羊肉串','配馕']},
-  {n:'凯麦尔丁蓝鸽子店',city:'喀什',cat:'街头小吃',price:'30-40元',loc:'喀什市区',desc:'烤鸽子肉嫩，鸽子汤鲜美清淡',addr:'喀什市区',intro:'来喀什不能错过的烤鸽子，鸽子肉很嫩，但更惊艳的是鸽子汤，味道鲜美清淡，配着面吃很棒。',dishes:['烤鸽子','鸽子汤']},
-  {n:'亚瓦格古老凉皮',city:'喀什',cat:'甜品饮品',price:'10-15元',loc:'喀什市区',desc:'酸辣口无芝麻酱，辣子很香',addr:'喀什市区',intro:'南疆特色的酸辣口凉皮，没有芝麻酱，口感清爽，辣子很香，是本地人从小吃到大的味道。',dishes:['凉皮']},
-  {n:'古老冰山特色冰淇淋',city:'喀什',cat:'甜品饮品',price:'10-15元',loc:'喀什市区',desc:'奶油浓郁绵密丝滑，手工现做',addr:'喀什市区',intro:'奶油味非常浓郁，口感绵密丝滑，是手工现做的感觉，饭后吃一支很满足。',dishes:['冰淇淋']},
-  {n:'冰蕊粽子/果丛果汁',city:'喀什',cat:'甜品饮品',price:'8-12元',loc:'喀什市区',desc:'酸奶粽子糯叽叽配酸甜酸奶',addr:'喀什市区',intro:'这两家的酸奶粽子都很有名，糯叽叽的粽子配上酸甜的酸奶，是解腻神器。',dishes:['酸奶粽子']},
-  {n:'巴依吐拉商店',city:'喀什',cat:'甜品饮品',price:'5-10元',loc:'喀什市区',desc:'最纯正酸奶，很酸可加蜂蜜',addr:'喀什市区',intro:'想喝最纯正的酸奶可以来这家，味道非常酸，可以加蜂蜜，是很多本地人的选择。',dishes:['酸奶']},
-  {n:'阿勒多斯餐厅',city:'库车',cat:'库车',price:'9元/串',loc:'本地人回头率最高',desc:'馕坑肉69元/kg·烤全羊99元/kg·羊肉串9元',addr:'库车城区',intro:'库车口碑最稳的肉店，本地人回头率极高。肉嫩量大还便宜，环境苍蝇馆子级别，介意的别去。',dishes:['馕坑肉 69元/kg','烤全羊 99元/kg','羊肉串 9元/串']},
-  {n:'甜穆奇鸽子汤',city:'库车',cat:'库车',price:'30-40元',loc:'库车城区',desc:'鸽子汤+烤鸽子+拌面，汤清亮解腻',addr:'库车城区',intro:'鸽子汤+烤鸽子+鸽子拌面，汤色清亮入口鲜，吃完重肉类来一碗特别解腻。',dishes:['鸽子汤','烤鸽子','鸽子拌面']},
-  {n:'巴帕迪抓饭',city:'库车',cat:'库车',price:'25-35元',loc:'塔化边上',desc:'果木熏抓饭，羊肉软烂入口即化，送老酸奶',addr:'库车塔化边上',intro:'果木熏出来的抓饭，羊肉软烂入口即化，每份送一小碗老酸奶。去早，晚了容易卖完。',dishes:['果木熏抓饭','老酸奶']},
-  {n:'喀尔博瓦爷冰淇淋',city:'库车',cat:'库车',price:'5元/球',loc:'花帽巷附近',desc:'巴旦木+开心果，奶味浓真果仁',addr:'库车花帽巷附近',intro:'巴旦木和开心果口味被反复夸，奶味浓、能嚼到真果仁，5块一个球，消食标配。',dishes:['巴旦木口味','开心果口味']},
-  {n:'乌恰巴扎椒麻鸡',city:'库车',cat:'库车',price:'49.9元/份',loc:'古杨树社区对面棚子',desc:'库车最好吃椒麻鸡，配油塔子蘸汤',addr:'库车古杨树社区对面棚子',intro:'库车最最最最好吃的椒麻鸡，49.9一份，配油塔子蘸汤吃。位置偏，但本地人扎堆。',dishes:['椒麻鸡 49.9元/份','油塔子']},
-  {n:'库车大馕',city:'库车',cat:'库车',price:'3-5元/个',loc:'库车大馕城',desc:'比脸盆还大，现烤脆香',addr:'库车大馕城',intro:'比脸盆还大，现烤脆香，库车标志性美食。',dishes:['大馕 3-5元/个']},
-  {n:'三号仓库',city:'阿克苏',cat:'阿克苏',price:'人均50-70元',loc:'阿克苏市区',desc:'烤羊排外焦里嫩零膻味，回头客多',addr:'阿克苏市区',intro:'阿克苏口碑最稳的新疆菜馆，回头客多，踩雷概率极低。分量巨大，两个人别点多。下午1点免费水果、2点免费酸奶续。',dishes:['烤羊排（外焦里嫩零膻味）','椒麻鸡','丁丁炒面']},
-  {n:'粒粒香抓饭',city:'阿克苏',cat:'阿克苏',price:'20-35元',loc:'上海路东风小区门面',desc:'阿克苏抓饭天花板，油润不腻',addr:'阿克苏上海路东风小区门面',intro:'被本地人和游客反复提到的阿克苏抓饭天花板。羊油浸润每粒米，油润不腻。下午四五点去还有人，肉软烂到一抿就脱骨，送酸奶和萝卜小菜。',dishes:['羊脖子＞羊排＞羊肉＞羊腿','酸奶','萝卜小菜']},
-  {n:'聪英餐厅',city:'阿克苏',cat:'阿克苏',price:'人均50元',loc:'阿克苏市区',desc:'装修异域风情拍照出片，味道也在线',addr:'阿克苏市区',intro:'装修很有异域风情，拍照出片，适合兼顾环境和味道的。人均不贵，两人吃撑百来块。羊肉串偏小、服务员比较松弛。',dishes:['纳仁（小份面条滑肉多）','核桃烤包子（酥皮甜点口感）','鸽子汤']},
-  {n:'古丽饭店',city:'阿克苏',cat:'阿克苏',price:'人均15-25元',loc:'阿克苏市区',desc:'本地人常去的早餐店，家里味道',addr:'阿克苏市区',intro:'本地人常去的早餐店，简单实在，吃出家里的味道。',dishes:['皮牙子肉包','韭菜肉包','牛肉汤面']},
-  {n:'太白松鸡蛋面',city:'阿克苏',cat:'阿克苏',price:'人均15-25元',loc:'阿克苏市区',desc:'20多年老店，牛骨汤底配煎蛋',addr:'阿克苏市区',intro:'20多年老店，牛骨汤底配煎到外焦里嫩的鸡蛋，再来几串烤肉一个烤包子，是阿克苏人的经典早餐搭配。有人反馈两次没开，建议早去碰运气。',dishes:['牛骨汤鸡蛋面','烤肉串','烤包子']},
-  {n:'冰糖心苹果',city:'阿克苏',cat:'阿克苏',price:'5-8元/斤',loc:'苹果批发市场',desc:'10月初早熟上市，整箱快递寄走',addr:'阿克苏苹果批发市场',intro:'阿克苏冰糖心苹果，10月初早熟上市，可整箱快递寄走。',dishes:['冰糖心苹果 5-8元/斤']}
-];
-
-const travelTips=[
-  {
-    title:'⚠️ 安全检查清单（最重要）',
-    items:[
-      '【出发前必办】落地喀什即办边防证（塔县+木吉+红其拉甫）',
-      '【帕米尔段】塔县出发前务必加满油 · 盘龙古道无信号带现金',
-      '【高原反应】氧气瓶×2 · 葡萄糖 · 布洛芬 · 不洗澡不喝酒多喝热水',
-      '【紧急电话】塔县医院 0998-3421234 · 喀什急救 120 · 高速救援 12122'
-    ]
-  },
-  {title:'✈️🏨 机票+酒店预订总览',items:['【机票】9月下旬 去程·武汉→乌鲁木齐','【机票】9月下旬 中转·乌鲁木齐→喀什','【机票】10月初 喀什→库车','【机票】10月初 返程·阿克苏→武汉','【酒店】9月下旬 喀什大学城希尔顿惠庭 灵动大床 ¥1142/3晚','【酒店】9月下旬 全季酒店 塔什库尔干千草滩景区店 高级大床×2 ¥1828/2晚','【酒店】9月底 茗源民宿 塔县 ¥380 ✓','【酒店】10月初 温德姆豪生life 喀什疏附 高级双床 ¥278','【酒店】10月初 库车希尔顿惠庭 灵动大床×2晚','✅ 全部酒店已订齐 | 9月下旬 喀什大学城希尔顿惠庭（¥1142/3晚）· 10月初 阿克苏希尔顿花园1晚']},{title:'✅ 国庆预订紧急度（全部已订）',items:['🔴 喀什古城+塔县住宿溢价2-3倍，提前30天订','🔴 边防证抵达即办（塔县+木吉+红其拉甫）','🔴 盘龙古道国庆可能限流，8:30前出发','🟡 库车→阿克苏火车票提前15天12306抢']},{title:'高原安全事项',items:['氧气瓶（喀什买2-3瓶/人）、葡萄糖口服液、布洛芬','塔县平均海拔3100m，建议适应1天再上高原','盘龙古道最高4200m，慕士塔格冰川4688m','不洗澡、不喝酒、多喝热水、少吃多餐']},{title:'车载与通讯',items:['帕米尔加油站极少，塔县出发前务必加满！','提前下载新疆离线地图（木吉段无信号）','10月冰川路面建议带防滑链','盘龙古道单行道：大盘龙上、小盘龙下']},{title:'穿衣与天气',items:['D1-2 喀什：白天24-28°C / 夜12-15°C · 薄外套','D4-5 帕米尔：白天12-20°C / 夜0-5°C · 冲锋衣+抓绒','D6 国门：白天5-12°C · 厚羽绒！体感<0°C','D7 冰川：早上0°C→喀什22°C · 经典洋葱日','D8-11 库车阿克苏：白天20-26°C · 舒适秋天','🧅 打包：速干T恤×3 + 抓绒×2 + 冲锋衣×1 + 羽绒×1','配件：毛线帽（白沙湖风大救命！）、手套、墨镜、SPF50+']}];
-
+// ====== DATA（外部 data.js，支持 localStorage 覆盖）======
+var _localRB = (function(){ try{ var l=localStorage.getItem('roadbook_local'); return l?JSON.parse(l):null; }catch(e){ return null; } })();
+var _RB = _localRB || window.ROADBOOK;
+var tripStartStr = _RB.tripStart, tripEndStr = _RB.tripEnd;
+var tripStart = new Date(tripStartStr), tripEnd = new Date(tripEndStr);
+var mapQueries = _RB.mapQueries, poiCoords = _RB.poiCoords, days = _RB.days, restaurants = _RB.restaurants, travelTips = _RB.travelTips;
 // ====== STATE ======
+
 let activeView=0,activeTab=-1,map=null,markersLayer=null,dayPolylines=[],mapReady=false,kashiCat=0;
 
 function getCurrentDay(){
   const now=new Date();
-  const start=new Date('2026-09-25T00:00:00+08:00');
-  const end=new Date('2026-10-05T23:59:59+08:00');
+  const start=tripStart, end=tripEnd;
   if(now<start||now>end)return null;
   const diff=Math.floor((now-start)/86400000);
   if(diff>=0&&diff<days.length)return diff;
@@ -469,8 +431,7 @@ function rDay(d){
 
 function rDash(){
   const now=new Date();
-  const tripStart=new Date('2026-09-25T00:00:00+08:00');
-  const tripEnd=new Date('2026-10-05T23:59:59+08:00');
+  /* tripStart/tripEnd 来自全局数据层 */
   const daysToGo=Math.max(0,Math.ceil((tripStart-now)/86400000));
   const isTrip=now>=tripStart && now<=tripEnd;
   const isPast=now>tripEnd;
@@ -660,8 +621,7 @@ document.addEventListener('touchend',e=>{
 // ====== INIT ======
 function updateHeadPill(){
   const now=new Date();
-  const start=new Date('2026-09-25T00:00:00+08:00');
-  const end=new Date('2026-10-05T23:59:59+08:00');
+  const start=tripStart, end=tripEnd;
   const p=document.getElementById('headPill');
   if(!p)return;
   if(now>=start && now<=end){
@@ -685,5 +645,40 @@ function updateHeadPill(){
 updateHeadPill();
 switchView(0);
 </script>
+
+<!-- 路书数据编辑器：导出/导入 JSON，一键生成你自己的路书 -->
+<button id="rbEditBtn" aria-label="编辑路书数据" style="position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom) + 150px);z-index:55;width:46px;height:46px;border-radius:50%;border:none;background:var(--brand-gradient);color:#fff;font-size:20px;box-shadow:0 6px 20px rgba(217,119,87,.45);display:flex;align-items:center;justify-content:center;cursor:pointer">⚙️</button>
+<div id="rbEditor" style="display:none;position:fixed;inset:0;z-index:70;background:rgba(26,26,26,.45);backdrop-filter:blur(4px);align-items:flex-end;justify-content:center">
+  <div style="width:100%;max-width:460px;background:#fff;border-radius:28px 28px 0 0;padding:18px 18px calc(env(safe-area-inset-bottom) + 18px);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+    <div style="display:flex;justify-content:center;margin-bottom:8px"><div style="width:40px;height:4px;border-radius:2px;background:#E8DFD3"></div></div>
+    <h3 style="font-size:16px;font-weight:800;color:#1A1A1A;margin-bottom:2px">🛠 路书数据编辑器</h3>
+    <p style="font-size:11px;color:#6B6B6B;line-height:1.6;margin-bottom:14px">导出当前路书为 JSON，按结构改成你自己的行程，再导入即可生成专属路书。也可直接编辑 <code style="background:#FAF0E9;padding:1px 5px;border-radius:4px;color:#C25A3A">data.js</code>。</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <button onclick="rbExport()" style="padding:12px;border:none;border-radius:14px;background:#D97757;color:#fff;font-size:13px;font-weight:700;cursor:pointer">⬇️ 导出 JSON</button>
+      <button onclick="document.getElementById('rbFile').click()" style="padding:12px;border:none;border-radius:14px;background:#F5D5C0;color:#A8472A;font-size:13px;font-weight:700;cursor:pointer">⬆️ 导入文件</button>
+      <input id="rbFile" type="file" accept="application/json,.json" style="display:none" onchange="rbImportFile(this)">
+    </div>
+    <textarea id="rbText" placeholder="或在此粘贴路书 JSON，点击应用" style="width:100%;height:120px;resize:vertical;border:1px solid #E8DFD3;border-radius:14px;padding:10px;font-size:12px;font-family:monospace;color:#4A4A4A;box-sizing:border-box"></textarea>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      <button onclick="rbApplyText()" style="padding:12px;border:none;border-radius:14px;background:#1A1A1A;color:#fff;font-size:13px;font-weight:700;cursor:pointer">✓ 应用 JSON</button>
+      <button onclick="rbReset()" style="padding:12px;border:none;border-radius:14px;background:#F5F1EA;color:#6B6B6B;font-size:13px;font-weight:700;cursor:pointer">↺ 恢复默认</button>
+    </div>
+    <p id="rbMsg" style="font-size:10px;color:#C25A3A;margin-top:10px;min-height:14px"></p>
+    <button onclick="rbClose()" style="width:100%;padding:12px;margin-top:6px;border:none;border-radius:14px;background:#FAF0E9;color:#A8472A;font-size:13px;font-weight:700;cursor:pointer">关闭</button>
+  </div>
+</div>
+<script>
+function rbClose(){document.getElementById('rbEditor').style.display='none';}
+function rbOpen(){document.getElementById('rbEditor').style.display='flex';}
+document.getElementById('rbEditBtn').addEventListener('click',rbOpen);
+document.getElementById('rbEditor').addEventListener('click',function(ev){if(ev.target===this)rbClose();});
+function rbCurData(){return {tripStart:tripStartStr,tripEnd:tripEndStr,mapQueries:mapQueries,poiCoords:poiCoords,days:days,restaurants:restaurants,travelTips:travelTips};}
+function rbExport(){var data=rbCurData();var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='roadbook.json';a.click();URL.revokeObjectURL(a.href);document.getElementById('rbMsg').textContent='已导出 roadbook.json';}
+function rbSave(obj){localStorage.setItem('roadbook_local',JSON.stringify(obj));document.getElementById('rbMsg').textContent='已保存，正在重新生成路书…';setTimeout(function(){location.reload();},300);}
+function rbImportFile(input){var f=input.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{rbSave(JSON.parse(r.result));}catch(e){document.getElementById('rbMsg').textContent='JSON 解析失败：'+e.message;}};r.readAsText(f);}
+function rbApplyText(){var tx=document.getElementById('rbText').value.trim();if(!tx){document.getElementById('rbMsg').textContent='请先粘贴 JSON';return;}try{rbSave(JSON.parse(tx));}catch(e){document.getElementById('rbMsg').textContent='JSON 解析失败：'+e.message;}}
+function rbReset(){localStorage.removeItem('roadbook_local');document.getElementById('rbMsg').textContent='已恢复默认，正在刷新…';setTimeout(function(){location.reload();},300);}
+</script>
+
 </body>
 </html>
