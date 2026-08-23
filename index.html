@@ -27,7 +27,7 @@
         window.tailwind.config={theme:{extend:{colors:{
           brand:{50:'#FDF5EF',100:'#FAEBE0',200:'#F5D5C0',300:'#E8B89A',400:'#D97757',500:'#C25A3A',600:'#A8472A',700:'#8A3A22',800:'#6B2D1A',900:'#4A2010'},
           ink:'#1A1A1A',paper:'#FAFAF7',sand:'#E8DFD3',slate:'#6B6B6B'
-        }}};
+        }}}};
       }
     });
   </script>
@@ -174,28 +174,7 @@ h3{font-size:13px;font-weight:700;letter-spacing:0}
   #map{min-height:500px!important}
 }
 </style>
-<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
-<script>
-(function(){
-  try{
-    var beacon=new BeaconAction({
-      appkey:'0WEB06U85YBSLJNL',
-      versionCode:'1.0.0',
-      channelID:'share',
-      delay:1000,
-      sessionDuration:30*60*1000,
-      isOversea:false,
-      needReportRqdEvent:false
-    });
-    beacon.onDirectUserAction('preview_page_view',{
-      'url':location.href,
-      'referrer':document.referrer,
-      'title':document.title,
-      'sandbox_id':'b3f8ee4e1a92445cb73997e40930e929'
-    });
-  }catch(e){}
-})();
-</script><script src="data.js"></script>
+<script src="data.js"></script>
 </head>
 <body class="min-h-screen">
 
@@ -244,7 +223,7 @@ var _localRB = (function(){ try{ var l=localStorage.getItem('roadbook_local'); r
 var _RB = _localRB || window.ROADBOOK;
 var tripStartStr = _RB.tripStart, tripEndStr = _RB.tripEnd;
 var tripStart = new Date(tripStartStr), tripEnd = new Date(tripEndStr);
-var mapQueries = _RB.mapQueries, poiCoords = _RB.poiCoords, days = _RB.days, restaurants = _RB.restaurants, travelTips = _RB.travelTips;
+var mapQueries = _RB.mapQueries, poiCoords = _RB.poiCoords, days = _RB.days, restaurants = _RB.restaurants, travelTips = _RB.travelTips, budget = _RB.budget, gear = _RB.gear;
 // ====== STATE ======
 
 let activeView=0,activeTab=-1,map=null,markersLayer=null,dayPolylines=[],mapReady=false,kashiCat=0;
@@ -568,24 +547,10 @@ function openRestaurant(idx){
 function openSheet(type){
   const d=document.createElement('div');d.className='fixed inset-0 z-50 bg-brand-600/40 backdrop-blur-sm';
   let content='';
-  if(type==='gear')content=`<h3 class="text-sm font-bold mb-3" style="color:var(--ink)">高原自驾 · 防高反装备清单</h3><div class="space-y-2 text-xs text-slate"><div class="p-3 bg-brand-50/80 rounded-xl"><div class="font-bold mb-0.5" style="color:var(--ink)">防高反</div><p class="text-slate">氧气瓶（喀什买2-3瓶/人）、葡萄糖、布洛芬缓释胶囊。</p></div><div class="p-3 bg-brand-50/80 rounded-xl"><div class="font-bold mb-0.5" style="color:var(--ink)">洋葱穿搭</div><p class="text-slate">三合一冲锋衣、抓绒、保暖手套、防风帽、墨镜、保温杯。</p></div><div class="p-3 bg-brand-50/80 rounded-xl"><div class="font-bold mb-0.5" style="color:var(--ink)">证件</div><p class="text-slate">身份证、边防证（塔县+木吉+红其拉甫）、备用现金。</p></div><div class="p-3 bg-brand-50/80 rounded-xl"><div class="font-bold mb-0.5" style="color:var(--ink)">电子</div><p class="text-slate">充电宝×2、车载充电器、无人机、离线地图。</p></div><div class="p-3 bg-brand-50/80 rounded-xl"><div class="font-bold mb-0.5" style="color:var(--ink)">车载</div><p class="text-slate">防滑链（10月冰川）、备胎检查。塔县务必加满油！</p></div></div>`;
-  else{
-  const budget=[
-    {n:'住宿·喀什希尔顿惠庭·3晚',v:'¥1,142',real:true,note:'9月下旬'},
-    {n:'住宿·全季·千草滩·2晚',v:'¥914',real:true,note:'9月下旬 · 双房÷2'},
-    {n:'住宿·茗源民宿·1晚',v:'¥380',real:true,note:'9月底'},
-    {n:'住宿·温德姆豪生life·1晚',v:'¥278',real:true,note:'10月初'},
-    {n:'住宿·阿克苏希尔顿花园·1晚',v:'¥458',real:true,note:'10月初'},
-    {n:'住宿·库车希尔顿惠庭·2晚',v:'¥760',real:true,note:'10月初'},
-    {n:'机票·武汉→喀什（去程）',v:'¥2,283',real:true,note:'9月下旬 去程·武汉→喀什'},
-    {n:'机票·喀什→库车',v:'¥800',real:true,note:'10月初 喀什→库车'},
-    {n:'返程·库车→阿克苏→武汉',v:'约¥2,400',real:false,note:'10月初 返程·库车→阿克苏→武汉'},
-    {n:'租车·喀什段SUV 5天',v:'¥1,250',real:true,note:'坦克400 · 拼车÷2'},
-    {n:'租车·库车段轿车 2天',v:'¥425',real:true,note:'比亚迪元 · 拼车÷2'},
-    {n:'燃油+高速',v:'约¥870',real:false,note:'~1,240km'},
-    {n:'餐饮美食',v:'约¥1,800',real:false,note:'10天·~¥180/天'},
-    {n:'门票+杂费',v:'约¥1,100',real:false,note:'白沙湖/盘龙等'}
-  ];
+  if(type==='gear'){
+    content='<h3 class="text-sm font-bold mb-3" style="color:var(--ink)">高原自驾 · 防高反装备清单</h3><div class="space-y-2 text-xs text-slate">'+(gear||[]).map(function(g){return '<div class="p-3 bg-brand-50/80 rounded-xl"><div class="font-bold mb-0.5" style="color:var(--ink)">'+g.cat+'</div><p class="text-slate">'+g.desc+'</p></div>';}).join('')+'</div>';
+  }
+else{
   const knownCount=budget.filter(b=>b.real).length;
   const totalCount=budget.length;
   const knownTotal=budget.reduce((s,b)=>s+(b.real?parseInt(b.v.replace(/[^0-9]/g,'')):0),0);
@@ -672,9 +637,9 @@ function rbClose(){document.getElementById('rbEditor').style.display='none';}
 function rbOpen(){document.getElementById('rbEditor').style.display='flex';}
 document.getElementById('rbEditBtn').addEventListener('click',rbOpen);
 document.getElementById('rbEditor').addEventListener('click',function(ev){if(ev.target===this)rbClose();});
-function rbCurData(){return {tripStart:tripStartStr,tripEnd:tripEndStr,mapQueries:mapQueries,poiCoords:poiCoords,days:days,restaurants:restaurants,travelTips:travelTips};}
+function rbCurData(){return {tripStart:tripStartStr,tripEnd:tripEndStr,mapQueries:mapQueries,poiCoords:poiCoords,days:days,restaurants:restaurants,travelTips:travelTips,budget:budget,gear:gear};}
 function rbExport(){var data=rbCurData();var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='roadbook.json';a.click();URL.revokeObjectURL(a.href);document.getElementById('rbMsg').textContent='已导出 roadbook.json';}
-function rbSave(obj){localStorage.setItem('roadbook_local',JSON.stringify(obj));document.getElementById('rbMsg').textContent='已保存，正在重新生成路书…';setTimeout(function(){location.reload();},300);}
+function rbSave(obj){var merged=Object.assign({},window.ROADBOOK,obj);localStorage.setItem('roadbook_local',JSON.stringify(merged));document.getElementById('rbMsg').textContent='已保存，正在重新生成路书…';setTimeout(function(){location.reload();},300);}
 function rbImportFile(input){var f=input.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{rbSave(JSON.parse(r.result));}catch(e){document.getElementById('rbMsg').textContent='JSON 解析失败：'+e.message;}};r.readAsText(f);}
 function rbApplyText(){var tx=document.getElementById('rbText').value.trim();if(!tx){document.getElementById('rbMsg').textContent='请先粘贴 JSON';return;}try{rbSave(JSON.parse(tx));}catch(e){document.getElementById('rbMsg').textContent='JSON 解析失败：'+e.message;}}
 function rbReset(){localStorage.removeItem('roadbook_local');document.getElementById('rbMsg').textContent='已恢复默认，正在刷新…';setTimeout(function(){location.reload();},300);}
